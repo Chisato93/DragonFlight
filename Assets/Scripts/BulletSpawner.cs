@@ -13,5 +13,7 @@ public class BulletSpawner : MonoBehaviour
     private void GenerateBullet()
     {
         Instantiate(bullet, this.transform.position, Quaternion.identity);
+
+        AudioManager.instance.AttackSE();
     }
 }

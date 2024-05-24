@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
             go_bullet.SetActive(false);
 
             Destroy(collision.gameObject);
+            AudioManager.instance.DieSE();
 
             // 파괴 애니메이션 끝나고 사라져야 하는데 안되서 일단 2로 하드코딩
             Invoke("SetOffBullet", 2f);
