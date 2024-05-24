@@ -17,23 +17,18 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void DestroyEnemy(GameObject go)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            explosionParticle.SetActive(true);
+        explosionParticle.SetActive(true);
 
-            go_bullet.SetActive(false);
+        go_bullet.SetActive(false);
 
-            Destroy(collision.gameObject);
-            AudioManager.instance.DieSE();
+        Destroy(go);
+        AudioManager.instance.DieSE();
 
-            // 파괴 애니메이션 끝나고 사라져야 하는데 안되서 일단 2로 하드코딩
-            Invoke("SetOffBullet", 2f);
-        }
+        // 파괴 애니메이션 끝나고 사라져야 하는데 안되서 일단 2로 하드코딩
+        Invoke("SetOffBullet", 2f);
     }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
