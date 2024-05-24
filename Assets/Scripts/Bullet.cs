@@ -19,12 +19,13 @@ public class Bullet : MonoBehaviour
 
     public void DestroyEnemy(GameObject go)
     {
-        explosionParticle.SetActive(true);
-
-        go_bullet.SetActive(false);
-
-        Destroy(go);
         AudioManager.instance.DieSE();
+        int score = go.GetComponent<Enemy>().score;
+        GameManager.instance.SetScore(score);
+        Destroy(go);
+
+        explosionParticle.SetActive(true);
+        go_bullet.SetActive(false);
 
         // 파괴 애니메이션 끝나고 사라져야 하는데 안되서 일단 2로 하드코딩
         Invoke("SetOffBullet", 2f);

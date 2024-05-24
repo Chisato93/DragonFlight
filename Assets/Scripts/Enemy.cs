@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float moveSpeed = 1f;
+    public int score = 5;
 
     void Update()
     {
